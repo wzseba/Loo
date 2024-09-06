@@ -1,5 +1,7 @@
 package ejercicios;
 
+import java.util.Arrays;
+
 public class Ejercicio4 {
 	/*
 	 * Se ingresa un valor numérico de 8 dígitos que representa una fecha con el
@@ -8,19 +10,16 @@ public class Ejercicio4 {
 	 */
 
 	static void fechas(int fecha) {
-		int anio;
-		int mes;
-		int dia;
-		int[] f = new int[8];
+		String anio = String.valueOf(fecha);
 
-		for (int i = 0; i < f.length; i++) {
+		String[] a = anio.split("5");
 
-		}
+		System.out.println(Arrays.toString(a));
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		fechas(1859);
 	}
 
 }
