@@ -1,6 +1,6 @@
 package ejercicios;
 
-import java.util.Arrays;
+import java.util.Scanner;
 
 public class Ejercicio4 {
 	/*
@@ -10,16 +10,46 @@ public class Ejercicio4 {
 	 */
 
 	static void fechas(int fecha) {
+
+		// fecha valor primitivo convertido a cadena
 		String anio = String.valueOf(fecha);
 
-		String[] a = anio.split("5");
+		if (anio.length() < 8 || anio.length() > 8) {
+			throw new IllegalArgumentException("Formato incorrecto: debería ser aaaa mm dd");
+		}
+		String aaaa = "";
+		String mm = "";
+		String dd = "";
 
-		System.out.println(Arrays.toString(a));
+		// convierto el String a un arreglo de String
+		String[] a = anio.split("");
+
+		// concateno en cada variable el valor del arreglo de su posicion
+		for (int i = 0; i < a.length; i++) {
+			if (i <= 3) {
+				aaaa += a[i];
+			} else if (i > 3 && i <= 5) {
+				mm += a[i];
+			} else {
+				dd += a[i];
+			}
+
+		}
+
+		System.out.println("Año: " + aaaa + " mes: " + mm + " dia: " + dd);
+
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		fechas(1859);
+		Scanner input = new Scanner(System.in);
+		int fecha;
+
+		System.out.println("ingrese fecha en formato aaaa mm dd: ");
+		fecha = input.nextInt();
+
+		fechas(fecha);
+
 	}
 
 }
